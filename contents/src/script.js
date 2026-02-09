@@ -9,7 +9,9 @@ if ('scrollRestoration' in history) {
 }
 
 window.addEventListener('load', () => {
-  // Force le scroll en haut au chargement
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
   window.scrollTo(0, 0);
 
   const introOverlay = document.getElementById('intro-overlay');
@@ -95,19 +97,9 @@ async function updateSubCount() {
   if (!subCountElement) return;
 
   try {
-    // Utilisation de l'API avec URL complète (à adapter selon votre backend)
-    // Pour l'instant on garde l'appel local qui marche
-    const response = await fetch('/api/subscribers');
-    const data = await response.json();
 
-    if (data.subscriberCount) {
-      animateNumber(subCountElement, 0, Number(data.subscriberCount), 2000);
-    } else {
-      subCountElement.textContent = '69.4K';
-    }
   } catch (error) {
     console.error('Erreur lors de la récupération des abonnés:', error);
-    // Fallback: afficher une valeur statique
     subCountElement.textContent = '69.4K';
   }
 }
@@ -247,7 +239,7 @@ const gameJams = [
     startDate: "2026-04-10T18:00:00",
     endDate: "2026-04-13T18:00:00",
     url: "https://ldjam.com",
-    icon: "🕹️"
+    icon: "<i class=\"fa-solid fa-gamepad\"></i>"
   }
 ];
 
@@ -263,9 +255,9 @@ function getJamStatus(startDate, endDate) {
 
 function getStatusText(status) {
   const statusTexts = {
-    live: '🔴 En cours',
-    upcoming: '⏰ À venir',
-    ended: '✓ Terminée'
+    live: '<i class="fa-solid fa-circle-dot"></i> En cours',
+    upcoming: '<i class="fa-solid fa-clock"></i> À venir',
+    ended: '<i class="fa-solid fa-check"></i> Terminée'
   };
   return statusTexts[status] || status;
 }
@@ -337,11 +329,11 @@ function createJamCard(jam) {
       
       <div class="jam-dates">
         <div class="date-item">
-          <span class="date-icon">🚀</span>
+          <span class="date-icon"><i class="fa-solid fa-rocket"></i></span>
           <span>Début : ${formatDate(jam.startDate)}</span>
         </div>
         <div class="date-item">
-          <span class="date-icon">🏁</span>
+          <span class="date-icon"><i class="fa-solid fa-flag-checkered"></i></span>
           <span>Fin : ${formatDate(jam.endDate)}</span>
         </div>
       </div>
@@ -486,10 +478,10 @@ window.closeJamModal = function () {
 }
 
 // ============================
-// ANALYTICS (Cloudflare Worker)
 // ============================
-const WORKER_URL = "https://baudo-analystic.totoyopacmam.workers.dev";
-const VISIT_KEY = "baudo_visit_sent";
+const COUNTER_API_URL = "https://api.counterapi.dev/v1";
+const NAMESPACE = "baudo-site";
+const KEY = "visits";
 
 async function trackVisit() {
   const el = document.querySelector('.hero-stat.stat-pink .hero-stat-number');
@@ -498,35 +490,29 @@ async function trackVisit() {
   if (!el) return;
 
   try {
-    const today = new Date().toISOString().split('T')[0];
-    const lastSent = localStorage.getItem(VISIT_KEY);
+    const sessionKey = `visited_${NAMESPACE}_${KEY}`;
 
-    if (lastSent === today) {
-      const res = await fetch(`${WORKER_URL}/stats`);
-      const data = await res.json();
-      if (data.success) {
-        animateNumber(el, 0, data.totalVisits, 2000);
-      }
-      return;
+    let endpoint = "up"; // Default: increment
+    if (sessionStorage.getItem(sessionKey)) {
+      endpoint = "info"; // Just get info if already visited in this session
     }
 
-    const res = await fetch(`${WORKER_URL}/visit`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-    });
-
+    const res = await fetch(`${COUNTER_API_URL}/${NAMESPACE}/${KEY}/${endpoint}`);
     const data = await res.json();
 
-    if (data.success) {
-      if (data.newVisit) {
-        localStorage.setItem(VISIT_KEY, today);
+    if (data && data.count !== undefined) {
+      if (endpoint === "up") {
+        sessionStorage.setItem(sessionKey, "true");
       }
-      animateNumber(el, 0, data.totalVisits, 2000);
+      animateNumber(el, 0, data.count, 2000);
+    } else {
+      // Fallback if API fails or is new
+      el.textContent = "772+";
     }
 
   } catch (err) {
     console.error("Analytics error:", err);
-    el.textContent = "772"; // Fallback
+    el.textContent = "772+"; // Fallback
   }
 }
 

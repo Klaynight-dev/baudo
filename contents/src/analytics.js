@@ -27,7 +27,7 @@ async function trackVisit() {
   try {
     const today = new Date().toISOString().split('T')[0];
     const lastSent = localStorage.getItem(VISIT_KEY);
-    
+
     if (lastSent === today) {
       const res = await fetch(`${WORKER_URL}/stats`);
       const data = await res.json();
@@ -43,7 +43,7 @@ async function trackVisit() {
     });
 
     const data = await res.json();
-    
+
     if (data.success) {
       if (data.newVisit) {
         localStorage.setItem(VISIT_KEY, today);
