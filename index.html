@@ -1,41 +1,55 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BAUDO - Un gars Chill</title>
+  <title>BAUDO - Game Dev & Creator</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/gif" href="img/normal icon/baudo-site.png"/>
-  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
-  <meta name="description" content="Baudo, alias DevBaudo et Zbaudo, créateur de jeux vidéo indépendant. Découvrez ses projets, réseaux, jeux Android/iOS et contactez-le facilement. Dax est aussi de la partie !" />
-  <meta name="keywords" content="Baudo, DevBaudo, Zbaudo, Dax, jeux vidéo, développeur, Android, iOS, Twitch, YouTube, Discord, TikTok, Instagram, itch.io, Infinite Climb, Lethal Room" />
+  <link rel="icon" type="image/png" href="img/normal icon/baudo-site.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <meta name="description"
+    content="Baudo, alias DevBaudo et Zbaudo, créateur de jeux vidéo indépendant. Découvrez ses projets, réseaux, jeux Android/iOS et contactez-le facilement." />
+  <meta name="keywords"
+    content="Baudo, DevBaudo, Zbaudo, jeux vidéo, développeur, Android, iOS, Twitch, YouTube, Discord, TikTok, Instagram, itch.io, Infinite Climb, Lethal Room" />
   <meta name="author" content="Baudo" />
-  <meta property="og:title" content="Baudo (DevBaudo, Zbaudo) - Créateur de jeux vidéo & contenu gaming" />
-  <meta property="og:description" content="Baudo, alias DevBaudo et Zbaudo, créateur de jeux vidéo indépendant. Découvrez ses projets, réseaux, jeux Android/iOS et contactez-le facilement. Dax est aussi de la partie !" />
+  <meta name="theme-color" content="#8b5cf6" />
+  <meta property="og:title" content="BAUDO - Game Dev & Creator" />
+  <meta property="og:description"
+    content="Baudo, créateur de jeux vidéo indépendant. Découvrez ses projets, réseaux, jeux Android/iOS et rejoignez la communauté !" />
   <meta property="og:image" content="https://baudo.cscpacman.fr/img/normal icon/baudo-pdp.jpg" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://baudo.cscpacman.fr/" />
 </head>
+
 <body>
   <div id="intro-overlay">
     <div id="intro-flash"></div>
   </div>
+
   <header class="hero">
-    <!-- keep the existing img.banner as a fallback, background is controlled by CSS -->
     <img src="img/normal icon/baudo-banners.jpg" alt="Bannière Baudo" class="banner">
-    <!-- new background layer for interactive parallax blur/motion -->
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="hero-inner">
       <div class="hero-card">
         <img src="img/normal icon/baudo-pdp.jpg" alt="Photo de profil Baudo" class="profile-pic">
         <h1 class="title" id="hacker-title"></h1>
-        <p class="subtitle">Game Dev & fun !</p>
-        <p id="sub-count" class="sub-count">Abonnés : ...</p>
-        <br>
+        <p class="subtitle">Game Dev & Content Creator</p>
+        <p id="sub-count" class="sub-count">Chargement...</p>
         <div class="subscribe-container">
-          <a href="https://www.youtube.com/@Dev_Baudo" target="_blank" class="btn" id="subscribe-btn">S'Abonner ! </a>
+          <a href="https://www.youtube.com/@Dev_Baudo" target="_blank" rel="noopener noreferrer" class="btn"
+            id="subscribe-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 8px;">
+              <path
+                d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.55A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.55 9.38.55 9.38.55s7.5 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z" />
+            </svg>
+            S'Abonner
+          </a>
           <div class="subscribe-gif-right">
-            <img src="img/normal icon/baudo.idle.gif" alt="Petit personnage qui appuie" />
+            <img src="img/normal icon/baudo.idle.gif" alt="Personnage animé" />
           </div>
         </div>
       </div>
@@ -45,107 +59,116 @@
   <main class="content">
     <section class="about">
       <h2>À propos</h2>
-      <p><span id="light">🎅Merry Christmas🎁</span></p>
       <p>
-        Juste un <span id="light">gars</span> qui <span id="light">joue à créer des jeux vidéo</span>🕹️ (<span id="about-message">à méditer</span>)
+        Hello ! Je suis <span id="light">Baudo</span>, un <span id="light">créateur de jeux vidéo indépendant</span> 🎮
       </p>
-      <br>
+      <p>
+        Passionné par le <span id="light">game development</span>, je crée des jeux sur <span id="light">mobile</span>
+        et <span id="light">PC</span>.
+        Rejoins-moi dans cette aventure créative !
+      </p>
       <p class="seo-keywords">
-        <span id="light">Retrouvez Baudo</span>, aussi <span id="light">connu</span> sous les pseudos <span id="light">DevBaudo</span> et <span id="light">Zbaudo</span>, sur toutes les <span id="light">plateformes</span> !
+        Retrouvez <span id="light">Baudo</span>, aussi connu sous les pseudos <span id="light">DevBaudo</span> et <span
+          id="light">Zbaudo</span>, sur toutes les plateformes !
       </p>
-      <br>
-      <p>Découvrez ses <span id="light">jeux</span>, ses <span id="light">vidéos</span> et sa <span id="light">communauté</span>.</p>
     </section>
 
     <section class="contact">
       <h2>Me Contacter</h2>
       <div class="contact-list">
-        <a href="https://www.youtube.com/@Dev_Baudo" target="_blank" class="contact-card fade-in-link">
-          <img src="img/normal icon/youtube.png" alt="youtube icon" class="contact-logo">
+        <a href="https://www.youtube.com/@Dev_Baudo" target="_blank" rel="noopener noreferrer"
+          class="contact-card fade-in-link">
+          <img src="img/normal icon/youtube.png" alt="YouTube" class="contact-logo">
           <span>Baudo - Chaîne Principale</span>
         </a>
-        <a href="https://discord.com/invite/TxJNqvAV5e" target="_blank" class="contact-card fade-in-link">
-          <img src="img/normal icon/discord.png" alt="Discord icon" class="contact-logo">
+        <a href="https://discord.com/invite/TxJNqvAV5e" target="_blank" rel="noopener noreferrer"
+          class="contact-card fade-in-link">
+          <img src="img/normal icon/discord.png" alt="Discord" class="contact-logo">
           <span>Le Baudo Crew (Discord)</span>
         </a>
         <a href="mailto:Baudo@stan-agency.com" class="contact-card fade-in-link">
-          <img src="img/normal icon/e-mail.png" alt="mail pro icon" class="contact-logo">
-          <span>Envie de collaborer avec moi ? : </span>
+          <img src="img/normal icon/e-mail.png" alt="Email" class="contact-logo">
           <span>Baudo@stan-agency.com</span>
         </a>
       </div>
     </section>
-    <!-- Nouvelle section Réseaux & Liens -->
+
     <section class="social-links">
       <h2>Mes Réseaux</h2>
       <div class="social-links-list">
-        <a href="https://www.youtube.com/@Zbaudo" target="_blank" class="social-link-card fade-in-link">
-          <img src="img/normal icon/youtube.png" alt="Chaîne Secondaire icon" class="social-logo">
+        <a href="https://www.youtube.com/@Zbaudo" target="_blank" rel="noopener noreferrer"
+          class="social-link-card fade-in-link">
+          <img src="img/normal icon/youtube.png" alt="YouTube" class="social-logo">
           <span>Zbaudo - Chaîne Secondaire</span>
         </a>
-        <a href="https://www.instagram.com/dev_baudo/" target="_blank" class="social-link-card fade-in-link">
-          <img src="img/normal icon/instagram.png" alt="Instagram icon" class="social-logo">
+        <a href="https://www.instagram.com/dev_baudo/" target="_blank" rel="noopener noreferrer"
+          class="social-link-card fade-in-link">
+          <img src="img/normal icon/instagram.png" alt="Instagram" class="social-logo">
           <span>Instagram</span>
         </a>
-        <a href="https://www.tiktok.com/@dev_baudo" target="_blank" class="social-link-card fade-in-link">
-          <img src="img/normal icon/tiktok.png" alt="TikTok icon" class="social-logo">
+        <a href="https://www.tiktok.com/@dev_baudo" target="_blank" rel="noopener noreferrer"
+          class="social-link-card fade-in-link">
+          <img src="img/normal icon/tiktok.png" alt="TikTok" class="social-logo">
           <span>TikTok</span>
         </a>
-        <a href="https://www.twitch.tv/devbaudo" target="_blank" class="social-link-card fade-in-link">
-          <img src="img/normal icon/twitch.png" alt="Twitch icon" class="social-logo">
+        <a href="https://www.twitch.tv/devbaudo" target="_blank" rel="noopener noreferrer"
+          class="social-link-card fade-in-link">
+          <img src="img/normal icon/twitch.png" alt="Twitch" class="social-logo">
           <span>Twitch</span>
         </a>
       </div>
     </section>
 
     <section class="games-links">
-      <h2>Mes jeux</h2>
+      <h2>Mes Jeux</h2>
       <div class="social-links-list">
-         <a href="https://dev-baudo.itch.io/" target="_blank" class="social-link-card fade-in-link">
-          <img src="img/normal icon/itch-io.png" alt="itch io icon" class="social-logo">
+        <a href="https://dev-baudo.itch.io/" target="_blank" rel="noopener noreferrer"
+          class="social-link-card fade-in-link">
+          <img src="img/normal icon/itch-io.png" alt="itch.io" class="social-logo">
           <span>Baudo - itch.io</span>
-        </a>  
-        <a href="https://play.google.com/store/apps/details?id=com.baudo.lethalroom&pli=1" target="_blank" class="social-link-card fade-in-link">
-          <img src="img/normal icon/lethal-room.webp" alt="Lethal room Android icon" class="social-logo">
-          <span>Lethal room - Android</span>
         </a>
-        <a href="https://apps.apple.com/us/app/lethal-room/id6740019326" target="_blank" class="social-link-card fade-in-link">
-          <img src="img/normal icon/lethal-ios.png" alt="Lethal room Ios icon" class="social-logo">
-          <span>Lethal room - IOS</span>
+        <a href="https://play.google.com/store/apps/details?id=com.baudo.lethalroom&pli=1" target="_blank"
+          rel="noopener noreferrer" class="social-link-card fade-in-link">
+          <img src="img/normal icon/lethal-room.webp" alt="Lethal Room" class="social-logo">
+          <span>Lethal Room - Android</span>
         </a>
+        <a href="https://apps.apple.com/us/app/lethal-room/id6740019326" target="_blank" rel="noopener noreferrer"
+          class="social-link-card fade-in-link">
+          <img src="img/normal icon/lethal-ios.png" alt="Lethal Room iOS" class="social-logo">
+          <span>Lethal Room - iOS</span>
         </a>
-        <a href="https://play.google.com/store/apps/details?id=com.InfiniteClimb.monoapplication" target="_blank" class="social-link-card fade-in-link">
-          <img src="img/normal icon/infinit-climb.webp" alt="Infinite Climb Android icon" class="social-logo">
-          <span>infinite Climb - Android</span>
-
-        <a href="https://apps.apple.com/us/app/infinite-climb/id6478911448" target="_blank" class="social-link-card fade-in-link">
-          <img src="img/normal icon/infinite-ios.png" alt="Infinite Climb Ios icon" class="social-logo">
-          <span>infinite Climb - IOS</span>
+        <a href="https://play.google.com/store/apps/details?id=com.InfiniteClimb.monoapplication" target="_blank"
+          rel="noopener noreferrer" class="social-link-card fade-in-link">
+          <img src="img/normal icon/infinit-climb.webp" alt="Infinite Climb" class="social-logo">
+          <span>Infinite Climb - Android</span>
         </a>
-
-        <a href="https://dev-baudo.itch.io/boom-bouga" target="_blank" class="social-link-card fade-in-link">
-          <img src="img/normal icon/boom-bouga.png" alt="Boom Bouga Icon" class="social-logo">
+        <a href="https://apps.apple.com/us/app/infinite-climb/id6478911448" target="_blank" rel="noopener noreferrer"
+          class="social-link-card fade-in-link">
+          <img src="img/normal icon/infinite-ios.png" alt="Infinite Climb iOS" class="social-logo">
+          <span>Infinite Climb - iOS</span>
+        </a>
+        <a href="https://dev-baudo.itch.io/boom-bouga" target="_blank" rel="noopener noreferrer"
+          class="social-link-card fade-in-link">
+          <img src="img/normal icon/boom-bouga.png" alt="Boom Bouga" class="social-logo">
           <span>Boom Bouga</span>
         </a>
-
-        <a href="https://dev-baudo.itch.io/waffle-games-a-lethal-room-experience" target="_blank" class="social-link-card fade-in-link">
-          <img src="img/normal icon/waffle-game.png" alt="Waffle Games Icon" class="social-logo">
+        <a href="https://dev-baudo.itch.io/waffle-games-a-lethal-room-experience" target="_blank"
+          rel="noopener noreferrer" class="social-link-card fade-in-link">
+          <img src="img/normal icon/waffle-game.png" alt="Waffle Games" class="social-logo">
           <span>Waffle Games</span>
         </a>
-
       </div>
     </section>
-
   </main>
 
   <footer>
-      <p>© 2025 Baudo - Tous droits réservés. Créé avec ❤️ par 
-        <a id="pub" href="https://cscpacman.fr/">csc.pacman</a>
-      </p>
+    <p>© 2026 Baudo - Tous droits réservés. Créé avec ❤️ par
+      <a id="pub" href="https://cscpacman.fr/" target="_blank" rel="noopener noreferrer">csc.pacman</a> et
+      <a id="pub" href="https://klaynight.fr/" target="_blank" rel="noopener noreferrer">Klaynight</a>  
+    </p>
   </footer>
+
   <script src="script.js"></script>
 </body>
+
 </html>
-
-
-
