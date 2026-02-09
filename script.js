@@ -205,17 +205,42 @@ function updateSubCount() {
       return res.json();
     })
     .then(data => {
-      const subCount = document.getElementById('sub-count');
-      if (subCount && typeof data.subscriberCount !== 'undefined') {
-        subCount.textContent = Number(data.subscriberCount).toLocaleString('fr-FR') + " abonnés";
-      } else if (subCount) {
-        subCount.textContent = "+60k abonnés";
+      const subStat = document.querySelector('.stat-orange .hero-stat-number');
+      if (subStat && typeof data.subscriberCount !== 'undefined') {
+        const count = Number(data.subscriberCount);
+        animateCounter(subStat, count);
       }
     })
     .catch(() => {
-      const subCount = document.getElementById('sub-count');
-      if (subCount) subCount.textContent = "+60k abonnés";
     });
+}
+
+function animateCounter(element, target) {
+  const duration = 1500;
+  const start = 0;
+  const startTime = performance.now();
+
+  function formatNumber(num) {
+    if (num >= 1000) {
+      return (num / 1000).toFixed(1) + 'K';
+    }
+    return num.toString();
+  }
+
+  function update(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const easeOut = 1 - Math.pow(1 - progress, 3);
+    const current = Math.floor(start + (target - start) * easeOut);
+
+    element.textContent = formatNumber(current);
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    }
+  }
+
+  requestAnimationFrame(update);
 }
 
 updateSubCount();

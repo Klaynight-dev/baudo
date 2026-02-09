@@ -11,6 +11,7 @@
     rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <meta name="description"
     content="Baudo, alias DevBaudo et Zbaudo, créateur de jeux vidéo indépendant. Découvrez ses projets, réseaux, jeux Android/iOS et contactez-le facilement." />
   <meta name="keywords"
@@ -27,62 +28,119 @@
 
 <body>
   <div id="intro-overlay">
+    <div class="loader-content">
+      <img src="img/Basic/Branding/baudo-pdp.webp" alt="Baudo" class="loader-logo">
+      <div class="loader-spinner"></div>
+      <p class="loader-text">Chargement...</p>
+    </div>
     <div id="intro-flash"></div>
   </div>
 
-  <header class="hero">
-    <img src="img/Basic/Branding/baudo-banners.webp" alt="Bannière Baudo" class="banner">
-    <div class="hero-bg" aria-hidden="true"></div>
-    <div class="hero-inner">
-      <div class="hero-card">
-        <img src="img/Basic/Branding/baudo-pdp.webp" alt="Photo de profil Baudo" class="profile-pic">
-        <h1 class="title">BAUDO</h1>
-        <p class="subtitle">Game Dev & Content Creator</p>
-        <p id="sub-count" class="sub-count">Chargement...</p>
-        <div class="subscribe-container">
-          <a href="https://www.youtube.com/@Dev_Baudo" target="_blank" rel="noopener noreferrer" class="btn"
-            id="subscribe-btn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 8px;">
-              <path
-                d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.55A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.55 9.38.55 9.38.55s7.5 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z" />
-            </svg>
-            S'Abonner
-          </a>
-          <div class="subscribe-gif-right">
-            <img src="img/Basic/Branding/baudo.idle.gif" alt="Personnage animé" />
-          </div>
-        </div>
+  <!-- Next-Gen Navbar -->
+  <nav class="navbar">
+    <div class="navbar-content">
+      <a href="#" class="navbar-brand">
+        <img src="img/Basic/Branding/baudo-pdp.webp" alt="Baudo" class="navbar-logo">
+        <span class="navbar-title">BAUDO</span>
+      </a>
+      <div class="navbar-links">
+        <a href="#about" class="nav-link"><i class="fa-solid fa-user"></i> À propos</a>
+        <a href="#games" class="nav-link"><i class="fa-solid fa-gamepad"></i> Jeux</a>
+        <a href="#contact" class="nav-link"><i class="fa-solid fa-envelope"></i> Contact</a>
+      </div>
+      <div class="navbar-cta">
 
-        <!-- Stats in header -->
-        <div class="hero-stats">
-          <div class="hero-stat stat-orange">
-            <span class="hero-stat-number">69.4K</span>
-            <span class="hero-stat-label">Abonnés</span>
-          </div>
-          <div class="hero-stat stat-yellow">
-            <span class="hero-stat-number">7+</span>
-            <span class="hero-stat-label">Jeux Publiés</span>
-          </div>
-          <div class="hero-stat stat-cyan">
-            <span class="hero-stat-number">3</span>
-            <span class="hero-stat-label">Plateformes</span>
-          </div>
-          <div class="hero-stat stat-pink">
-            <span class="hero-stat-number">772</span>
-            <span class="hero-stat-label">Visites</span>
-          </div>
+      </div>
+      <!-- Bouton Menu Mobile -->
+      <button class="mobile-menu-btn" aria-label="Menu">
+        <span>☰</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Menu Mobile Overlay -->
+  <div class="nav-links">
+    <a href="#about"><i class="fa-solid fa-user"></i> À propos</a>
+    <a href="#games"><i class="fa-solid fa-gamepad"></i> Jeux</a>
+    <a href="#game-jams"><i class="fa-solid fa-trophy"></i> Game Jams</a>
+    <a href="#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+  </div>
+
+  <header class="hero">
+    <!-- ... (hero content) ... -->
+  </header>
+
+  <!-- (Existing content) -->
+
+  <!-- Section Game Jams -->
+  <section id="game-jams" class="game-jams-section">
+    <h2>Game Jams</h2>
+    <div id="gamejamGrid" class="gamejam-grid">
+      <!-- Les cartes seront générées par JS -->
+      <div class="loader-spinner"></div>
+    </div>
+  </section>
+
+  <!-- Modal Game Jam -->
+  <div id="jamModal" class="jam-modal">
+    <div class="jam-modal-overlay"></div>
+    <div class="jam-modal-container">
+      <div class="jam-modal-body">
+        <!-- Le contenu sera injecté par JS -->
+      </div>
+    </div>
+  </div>
+  <img src="img/Basic/Branding/baudo-banners.webp" alt="Bannière Baudo" class="banner">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-card">
+      <img src="img/Basic/Branding/baudo-pdp.webp" alt="Photo de profil Baudo" class="profile-pic">
+      <h1 class="title">BAUDO</h1>
+      <p class="subtitle">Game Dev & Content Creator</p>
+      <div class="subscribe-container">
+        <a href="https://www.youtube.com/@Dev_Baudo" target="_blank" rel="noopener noreferrer" class="btn"
+          id="subscribe-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 8px;">
+            <path
+              d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.55A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.55 9.38.55 9.38.55s7.5 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z" />
+          </svg>
+          S'Abonner
+        </a>
+        <div class="subscribe-gif-right">
+          <img src="img/Basic/Branding/baudo.idle.gif" alt="Personnage animé" />
+        </div>
+      </div>
+
+      <!-- Stats in header -->
+      <div class="hero-stats">
+        <div class="hero-stat stat-orange">
+          <span class="hero-stat-number">69.4K</span>
+          <span class="hero-stat-label">Abonnés</span>
+        </div>
+        <div class="hero-stat stat-yellow">
+          <span class="hero-stat-number">7+</span>
+          <span class="hero-stat-label">Jeux Publiés</span>
+        </div>
+        <div class="hero-stat stat-cyan">
+          <span class="hero-stat-number">3</span>
+          <span class="hero-stat-label">Plateformes</span>
+        </div>
+        <div class="hero-stat stat-pink">
+          <span class="hero-stat-number">772</span>
+          <span class="hero-stat-label">Visites</span>
         </div>
       </div>
     </div>
+  </div>
   </header>
 
   <main class="content">
-    <section class="about-section">
+    <section id="about" class="about-section">
       <h2>À propos</h2>
       <div class="about-content">
         <div class="about-text">
           <p class="about-intro">
-            Salut ! Moi c'est <span class="highlight">Baudo</span> 👋
+            Salut ! Moi c'est <span class="highlight">Baudo</span> <i class="fa-solid fa-hand"></i>
           </p>
           <p>
             Je suis un <span class="highlight">créateur de jeux vidéo indépendant</span> passionné par le game
@@ -91,7 +149,8 @@
             et je partage mon aventure créative sur YouTube et les réseaux !
           </p>
           <p class="about-cta-text">
-            Rejoins le <span class="highlight">Baudo Crew</span> et découvre mes créations 🎮
+            Rejoins le <span class="highlight">Baudo Crew</span> et découvre mes créations <i
+              class="fa-solid fa-gamepad"></i>
           </p>
         </div>
       </div>
@@ -100,7 +159,7 @@
       </p>
     </section>
 
-    <section class="contact">
+    <section id="contact" class="contact">
       <h2>Me Contacter</h2>
       <div class="contact-list">
         <a href="https://www.youtube.com/@Dev_Baudo" target="_blank" rel="noopener noreferrer"
@@ -149,7 +208,7 @@
       </div>
     </section>
 
-    <section class="games-section">
+    <section id="games" class="games-section">
       <h2>Mes Jeux</h2>
       <div class="games-grid">
 
@@ -340,15 +399,15 @@
         <div class="footer-column">
           <h4>Mes Jeux</h4>
           <a href="https://dev-baudo.itch.io/" target="_blank" rel="noopener noreferrer" class="footer-link">
-            🎮 itch.io
+            <i class="fa-solid fa-gamepad"></i> itch.io
           </a>
           <a href="https://play.google.com/store/apps/developer?id=Baudo" target="_blank" rel="noopener noreferrer"
             class="footer-link">
-            🤖 Google Play
+            <i class="fa-brands fa-android"></i> Google Play
           </a>
           <a href="https://apps.apple.com/developer/id1234567890" target="_blank" rel="noopener noreferrer"
             class="footer-link">
-            🍎 App Store
+            <i class="fa-brands fa-apple"></i> App Store
           </a>
         </div>
       </div>
