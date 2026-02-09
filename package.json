@@ -12,7 +12,7 @@
     "start": "node server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "csc.pacman & Klaynight",
   "license": "ISC",
   "description": ""
 }
