@@ -1,7 +1,0 @@
-name = "baudo-backend"
-main = "src/index.js"
-compatibility_date = "2025-09-30"
-
-[vars]
-ALLOWED_ORIGIN = "https://baudo.cscpacman.fr"
-

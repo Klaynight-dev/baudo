@@ -15,6 +15,17 @@
   --text-primary: #ffffff;
   --text-secondary: #a1a1aa;
   --text-muted: #71717a;
+  /* New variables from snippet */
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
+  --secondary: #ec4899;
+  --accent: #f59e0b;
+  --bg-dark-new: #0f172a;
+  --bg-darker: #020617;
+  --bg-card-new: #1e293b;
+  --gradient-1: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  --gradient-2: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+
   --glass-bg: rgba(255, 255, 255, 0.03);
   --glass-border: rgba(255, 255, 255, 0.08);
   --card-bg: rgba(18, 18, 26, 0.8);
@@ -177,9 +188,368 @@ body::after {
     display: none;
   }
 
+  /* Show navigation when active (Mobile Menu) */
+  .mobile-nav-overlay.mobile-active {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
   .navbar-title {
     font-size: 1.1rem;
   }
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1002;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-btn span {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .navbar-cta {
+    display: none;
+  }
+}
+
+/* Mobile Menu Overlay */
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(10, 10, 15, 0.95);
+  backdrop-filter: blur(20px);
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  transform: translateX(100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s var(--easing-bounce);
+}
+
+.mobile-nav-overlay a {
+  font-size: 1.5rem;
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.mobile-nav-overlay.mobile-active a {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger animation for links */
+.mobile-nav-overlay.mobile-active a:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.mobile-nav-overlay.mobile-active a:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.mobile-nav-overlay.mobile-active a:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.mobile-nav-overlay.mobile-active a:nth-child(4) {
+  transition-delay: 0.4s;
+}
+
+.mobile-nav-overlay a:hover {
+  color: var(--accent-primary);
+  transform: scale(1.1) !important;
+}
+
+/* Game Jams Section */
+.game-jams-section {
+  max-width: 1200px;
+  margin: 0 auto 80px;
+  padding: 0 24px;
+}
+
+.gamejam-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.gamejam-card {
+  background: linear-gradient(135deg, rgba(30, 30, 45, 0.6) 0%, rgba(20, 20, 30, 0.6) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.gamejam-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+.jam-status {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+.jam-status.live {
+  background: rgba(220, 38, 38, 0.2);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  animation: pulse 2s infinite;
+}
+
+.jam-status.upcoming {
+  background: rgba(234, 179, 8, 0.2);
+  color: #eab308;
+  border: 1px solid rgba(234, 179, 8, 0.3);
+}
+
+.jam-status.ended {
+  background: rgba(113, 113, 122, 0.2);
+  color: #a1a1aa;
+  border: 1px solid rgba(113, 113, 122, 0.3);
+}
+
+.jam-icon {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.05);
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+}
+
+.jam-title {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.jam-theme {
+  color: var(--accent-secondary);
+  font-weight: 600;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+.jam-description {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.jam-dates {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  background: rgba(0, 0, 0, 0.2);
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.date-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.jam-countdown {
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.countdown-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+  margin-bottom: 8px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.countdown-timer {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.countdown-value {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.countdown-unit-label {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.jam-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.jam-btn {
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.jam-btn-primary {
+  background: var(--accent-primary);
+  color: white;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+}
+
+.jam-btn-primary:hover {
+  background: #7c3aed;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+}
+
+.jam-btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.jam-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Modal */
+.jam-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.jam-modal.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.jam-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.jam-modal-container {
+  position: relative;
+  background: #181825;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  transform: scale(0.9);
+  transition: transform 0.3s var(--easing-bounce);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.jam-modal.active .jam-modal-container {
+  transform: scale(1);
+}
+
+.jam-modal-body {
+  padding: 30px;
+}
+
+/* Modal Content Styles - Simplified */
+.jam-modal-body h2 {
+  margin-top: 0;
+  color: var(--text-primary);
+}
+
+body.modal-open {
+  overflow: hidden;
 }
 
 .hero {
@@ -1873,4 +2243,167 @@ button:focus-visible {
     text-decoration: underline;
     color: black !important;
   }
+}
+
+/* ============================
+   NEW ANIMATIONS & STYLES (Based on Snippet)
+   ============================ */
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Profile Image Wrapper Animation */
+.profile-image-wrapper {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 2rem;
+  position: relative;
+  animation: float 6s ease-in-out infinite;
+  z-index: 10;
+}
+
+.profile-image-wrapper:before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  background: var(--gradient-1);
+  border-radius: 50%;
+  z-index: -1;
+  animation: rotate 8s linear infinite;
+  opacity: 0.8;
+  filter: blur(2px);
+}
+
+.profile-pic {
+  /* Override previous styles where necessary */
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--bg-dark-new);
+  /* Match snippet bg-darker */
+  margin: 0;
+  box-shadow: none;
+  /* Let wrapper handle effects or re-add */
+  animation: none;
+  /* Remove old entry animation to let float work immediately */
+  transform: none !important;
+  /* Reset transforms */
+  opacity: 1;
+}
+
+/* Update Nav Link Animation */
+.nav-link {
+  position: relative;
+}
+
+.nav-link:after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 18px;
+  /* Match padding */
+  right: 18px;
+  height: 2px;
+  background: var(--gradient-1);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover:after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Game Card Hover Update */
+.game-card {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.game-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(99, 102, 241, 0.25);
+  border-color: var(--primary);
+}
+
+/* Gradient Text for Title */
+.title {
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  /* Fallback */
 }
